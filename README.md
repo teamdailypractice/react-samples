@@ -2,6 +2,12 @@
 
 ## Build and Run
 
+
+```bash
+npm install
+npm start
+```
+
 ## Hooks
 
 
