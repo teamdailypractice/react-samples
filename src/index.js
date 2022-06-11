@@ -8,43 +8,17 @@ import CounterFunctionComponent from './CounterFunctionComponent';
 import CounterClassComponentSideEffect from './CounterClassComponentSideEffect'
 import CounterFunctionComponentSideEffect from './CounterFunctionComponentSideEffect'
 import CounterReducer from './CounterReducer'
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <CounterClassComponent value={10}/>
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
+import NameForm from './NameForm'
+import NameFormHooks from './NameFormHooks'
+import SearchHome from './SearchHome'
 
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <CounterFunctionComponent value={100}/>
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <CounterClassComponentSideEffect value={1000}/>
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <CounterFunctionComponentSideEffect value={-100} />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
-
+// const componentToRender = <NameFormHooks  />
+const componentToRender = <SearchHome  />
 
 ReactDOM.render(
   <React.StrictMode>
-    <CounterReducer  />
+    {componentToRender}
   </React.StrictMode>,
   document.getElementById('root')
 );
