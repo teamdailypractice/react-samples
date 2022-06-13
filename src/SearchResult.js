@@ -16,9 +16,9 @@ function getItem(searchText) {
     searchResult = searchResult.concat(wordSearchResult);
     // console.log(searchResult);
     const listItems = searchResult.map((x) =>
-        <div>
+        <div className='kural'>
             <span>{x.lines[0]}</span>
-            <br></br>
+            <br /><br />
             <span>{x.lines[1]}</span>
         </div>
     );
@@ -39,9 +39,9 @@ function getItem(searchText) {
 
 function SearchResult(props) {
     return (
-        <div>
+        <>
             {getItem(props.searchText)}
-        </div>
+        </>
     )
 }
 export default SearchResult;

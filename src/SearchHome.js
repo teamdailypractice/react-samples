@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Header from './Header';
+import Navigation from './Navigation';
 import SearchBox from './SearchBox';
 import SearchResult from './SearchResult';
 
@@ -14,6 +16,7 @@ function SearchHome() {
     console.log('searchTextSubmitted: ' + searchTextSubmitted);
     return (
         <div>
+            <Header />
             <SearchBox
                 setSearchTextSubmitted={setSearchTextSubmitted} />
             {component}
