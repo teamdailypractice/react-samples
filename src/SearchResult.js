@@ -20,6 +20,12 @@ function getItem(searchText) {
             <span>{x.lines[0]}</span>
             <br /><br />
             <span>{x.lines[1]}</span>
+            <p>
+                <audio controls>
+                    <source src="/media/1.mp3" type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
+            </p>
         </div>
     );
 

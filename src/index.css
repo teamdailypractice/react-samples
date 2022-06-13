@@ -79,6 +79,12 @@ button:disabled {
   color: rgb(0, 0, 0);
   margin-bottom: 15px;
 }
+
+p > audio {
+  
+  width: 10rem;
+  height: 4rem;
+}
 /* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

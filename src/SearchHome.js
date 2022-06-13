@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AudioPlayer from './AudioPlayer';
 import Header from './Header';
 import Navigation from './Navigation';
 import SearchBox from './SearchBox';
@@ -14,11 +15,14 @@ function SearchHome() {
         component = <SearchResult searchText={searchTextSubmitted}/>
     }
     console.log('searchTextSubmitted: ' + searchTextSubmitted);
+    const mediaFiles = ['/media/1.mp3'];
+    const howmanyTimesToPlay = 2;
     return (
         <div>
             <Header />
             <SearchBox
                 setSearchTextSubmitted={setSearchTextSubmitted} />
+                <AudioPlayer audioSrc={mediaFiles} howmanyTimesToPlay={howmanyTimesToPlay}/>
             {component}
         </div>
     )
