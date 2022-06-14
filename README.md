@@ -24,3 +24,29 @@ npm start
 * How hooks help?
   * Hooks allow you to reuse stateful logic **without changing your component hierarchy**
 
+## Data
+
+<https://www.tamilvu.org/library/l2100/audio/2.mp3>
+
+wget -c -A '*.mp3' -r -l 1 -nd https://www.tamilvu.org/library/l2100/audio
+
+wget https://www.tamilvu.org/library/l2100/audio/2.mp3
+wget -O 2.mp3 https://www.tamilvu.org/library/l2100/audio/2.mp3
+
+$START=1
+$END=10
+$BASE_URL='https://www.tamilvu.org/library/l2100/audio/'
+$filenames = $START..$END
+$fileExtension = '.mp3'
+$OUTPUT_DIRECTORY='D:\git\thirukkural-db\media\'
+foreach ($filename in $filenames)
+{
+  $filenameWithExtension = $filename.toString() + $fileExtension
+  $url = $BASE_URL + $filenameWithExtension
+  Invoke-WebRequest -Uri $url -OutFile $OUTPUT_DIRECTORY+$filenameWithExtension
+}
+
+$url = "https://www.tamilvu.org/library/l2100/audio/2.mp3"
+$output = "2.mp3"
+Invoke-WebRequest -Uri $url -OutFile $output
+

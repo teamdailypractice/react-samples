@@ -4,7 +4,7 @@ import searchThirukkural from './ThirukkuralSearch'
 
 function getUI(searchText, searchResult) {
     const listItems = searchResult.map((x) =>
-        <div className='kural'>
+        <div className='kural' key={x.id}>
             <span>{x.lines[0]}</span>
             <br /><br />
             <span>{x.lines[1]}</span>
