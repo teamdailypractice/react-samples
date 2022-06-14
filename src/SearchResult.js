@@ -1,31 +1,21 @@
 import React from 'react';
 import data from './data/kural'
+import searchThirukkural from './ThirukkuralSearch'
 
 function getItem(searchText) {
-    const idSearched = Number.parseInt(searchText)
-    let searchResult = [];
-    if (Number.isInteger(idSearched)) {
-        const idSearchResult = data.filter(x => x.id === idSearched);
-        searchResult = searchResult.concat(idSearchResult);
-    }
-    const wordSearchResult = data
-        .filter(x =>
-            x.lines[0].includes(searchText) ||
-            x.lines[1].includes(searchText) ||
-            x["a_id"] === searchText.toLowerCase())
-    searchResult = searchResult.concat(wordSearchResult);
+    const searchResult = searchThirukkural(searchText)
     // console.log(searchResult);
     const listItems = searchResult.map((x) =>
         <div className='kural'>
             <span>{x.lines[0]}</span>
             <br /><br />
             <span>{x.lines[1]}</span>
-            <p>
+            {/* <p>
                 <audio controls>
                     <source src="/media/1.mp3" type="audio/mpeg" />
                     Your browser does not support the audio element.
                 </audio>
-            </p>
+            </p> */}
         </div>
     );
 
