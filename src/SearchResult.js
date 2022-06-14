@@ -1,10 +1,8 @@
 import React from 'react';
-import data from './data/kural'
+
 import searchThirukkural from './ThirukkuralSearch'
 
-function getItem(searchText) {
-    const searchResult = searchThirukkural(searchText)
-    // console.log(searchResult);
+function getUI(searchText, searchResult) {
     const listItems = searchResult.map((x) =>
         <div className='kural'>
             <span>{x.lines[0]}</span>
@@ -36,7 +34,7 @@ function getItem(searchText) {
 function SearchResult(props) {
     return (
         <>
-            {getItem(props.searchText)}
+            {getUI(props.searchText, props.searchResult)}
         </>
     )
 }

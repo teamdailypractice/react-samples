@@ -4,6 +4,7 @@ import Header from './Header';
 import Navigation from './Navigation';
 import SearchBox from './SearchBox';
 import SearchResult from './SearchResult';
+import searchThirukkural from './ThirukkuralSearch';
 
 function SearchHome() {
     
@@ -12,7 +13,8 @@ function SearchHome() {
 
     let component = null;
     if (searchTextSubmitted !== '0000') {
-        component = <SearchResult searchText={searchTextSubmitted}/>
+        const searchResult = searchThirukkural(searchTextSubmitted);
+        component = <SearchResult searchText={searchTextSubmitted} searchResult={searchResult}/>
     }
     console.log('searchTextSubmitted: ' + searchTextSubmitted);
     const mediaFiles = ['/media/1.mp3'];
