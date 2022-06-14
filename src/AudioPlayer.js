@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 function AudioPlayer(props) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isPaused, setIsPaused] = useState(true);
   const [repeatCount, setRepeatCount] = useState(0);
 
   const audioRef = useRef(new Audio(props.audioSrc[0]));
@@ -34,15 +35,19 @@ function AudioPlayer(props) {
 
   useEffect(() => {
     console.log('audio repeatCount...' + repeatCount + ' - times:' + props.howmanyTimesToPlay)
-
-    if ((!isPlaying) && repeatCount > 0 && repeatCount < props.howmanyTimesToPlay) {
-      console.log('audio repeatCount...set')
-      setIsPlaying(true);
-    } 
-    if ((repeatCount ) >= props.howmanyTimesToPlay) {
-      setIsPlaying(false);
+    if(isPaused === true) {
+      console.log('User has paused it...')
+    } else {
+      if ((!isPlaying) && repeatCount > 0 && repeatCount < props.howmanyTimesToPlay) {
+        console.log('audio repeatCount...set')
+        setIsPlaying(true);
+      }
+      if ((repeatCount) >= props.howmanyTimesToPlay) {
+        setIsPlaying(false);
+      }
     }
-  }, [isPlaying, repeatCount, props.howmanyTimesToPlay]);
+   
+  }, [isPlaying, isPaused, repeatCount, props.howmanyTimesToPlay]);
 
   const currentAction = isPlaying ? 'Pause' : 'Play';
   return (
@@ -50,10 +55,12 @@ function AudioPlayer(props) {
       <button onClick={() => {
         if (isPlaying === false) {
           setIsPlaying(true);
-          if (repeatCount  >= props.howmanyTimesToPlay) {
+          setIsPaused(false);
+          if (repeatCount >= props.howmanyTimesToPlay) {
             setRepeatCount(0);
           }
         } else {
+          setIsPaused(true);
           setIsPlaying(false);
         }
       }
