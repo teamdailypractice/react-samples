@@ -50,3 +50,11 @@ $url = "https://www.tamilvu.org/library/l2100/audio/2.mp3"
 $output = "2.mp3"
 Invoke-WebRequest -Uri $url -OutFile $output
 
+## AudioPlayer with react
+
+* <https://stackoverflow.com/questions/47686345/playing-sound-in-react-js>
+* <https://codesandbox.io/s/silly-bohr-4zro3?file=/src/MultiPlayer.js>
+* Howler - react wrapper <https://github.com/joshwcomeau/use-sound>
+* <https://github.com/goldfire/howler.js#examples>
+* reacthook - useAudioplayer - <https://github.com/E-Kuerschner/useAudioPlayer>
+* npm i react-use-audio-player
