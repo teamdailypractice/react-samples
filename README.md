@@ -57,4 +57,4 @@ Invoke-WebRequest -Uri $url -OutFile $output
 * Howler - react wrapper <https://github.com/joshwcomeau/use-sound>
 * <https://github.com/goldfire/howler.js#examples>
 * reacthook - useAudioplayer - <https://github.com/E-Kuerschner/useAudioPlayer>
-* npm i react-use-audio-player
+* npm i --save react-use-audio-player

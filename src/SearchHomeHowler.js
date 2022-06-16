@@ -5,13 +5,16 @@ import Navigation from './Navigation';
 import SearchBox from './SearchBox';
 import SearchResult from './SearchResult';
 import searchThirukkural from './ThirukkuralSearch';
-import { AudioPlayerProvider } from "react-use-audio-player"
-import AudioPlayerTwo from './AudioPlayerTwo';
 
-function SearchHome() {
+import AudioPlayerHowler from './AudioPlayerHowler';
+import getAudioPlayer from './AudioProvider'
 
-    // const [songIndex, setSongIndex] = useState(0);
+function SearchHomeHowler() {
+
+    
     const [searchTextSubmitted, setSearchTextSubmitted] = useState('0000');
+    
+
     let searchResult = [];
 
     let component = null;
@@ -25,11 +28,10 @@ function SearchHome() {
     let audioPlayerComponent = null;
 
     if (mediaFiles.length > 0) {
-        const isNewSearchResult = true;
-        audioPlayerComponent = (<AudioPlayerProvider>
-            {/* <AudioPlayerTwo mediaFiles={mediaFiles} setSongIndex={setSongIndex} songIndex={songIndex}/> */}
-        <AudioPlayerTwo mediaFiles={mediaFiles} isNewSearchResult={isNewSearchResult}/> 
-        </AudioPlayerProvider>)
+        const audioPlayer = getAudioPlayer(mediaFiles);
+        audioPlayerComponent = (
+            <AudioPlayerHowler mediaFiles={mediaFiles} audioPlayer={audioPlayer} />
+        )
     }
 
     return (
@@ -42,4 +44,4 @@ function SearchHome() {
         </div>
     )
 }
-export default SearchHome;
+export default SearchHomeHowler;

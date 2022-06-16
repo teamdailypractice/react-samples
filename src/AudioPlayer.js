@@ -1,72 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from "react"
+import { useAudioPlayer } from "react-use-audio-player"
 
-function AudioPlayer(props) {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isPaused, setIsPaused] = useState(true);
-  const [repeatCount, setRepeatCount] = useState(0);
+const AudioPlayer = ({ file }) => {
+    const { togglePlayPause, ready, loading, playing } = useAudioPlayer({
+        src: file,
+        format: "mp3",
+        autoplay: false,
+        onend: () => console.log("sound has ended!")
+    })
 
-  const audioRef = useRef(new Audio(props.audioSrc[0]));
+    if (!ready && !loading) return <div>No audio to play</div>
+    if (loading) return <div>Loading audio</div>
 
-
-  // console.log(audioRef.current.onended);
-
-  audioRef.current.onended = () => {
-    console.log('audio ended...')
-    if (isPlaying) {
-      console.log('audio ended...setIsPlaying(false)')
-      setIsPlaying(false);
-      setRepeatCount(repeatCount + 1);
-    }
-  }
-
-
-  useEffect(() => {
-    console.log("in effect..." + isPlaying)
-    if (isPlaying && repeatCount < props.howmanyTimesToPlay) {
-      audioRef.current.play();
-
-    }
-    else {
-      audioRef.current.pause();
-    }
-
-
-  }, [isPlaying, repeatCount, props.howmanyTimesToPlay]);
-
-  useEffect(() => {
-    console.log('audio repeatCount...' + repeatCount + ' - times:' + props.howmanyTimesToPlay)
-    if(isPaused === true) {
-      console.log('User has paused it...')
-    } else {
-      if ((!isPlaying) && repeatCount > 0 && repeatCount < props.howmanyTimesToPlay) {
-        console.log('audio repeatCount...set')
-        setIsPlaying(true);
-      }
-      if ((repeatCount) >= props.howmanyTimesToPlay) {
-        setIsPlaying(false);
-      }
-    }
-   
-  }, [isPlaying, isPaused, repeatCount, props.howmanyTimesToPlay]);
-
-  const currentAction = isPlaying ? 'Pause' : 'Play';
-  return (
-    <>
-      <button onClick={() => {
-        if (isPlaying === false) {
-          setIsPlaying(true);
-          setIsPaused(false);
-          if (repeatCount >= props.howmanyTimesToPlay) {
-            setRepeatCount(0);
-          }
-        } else {
-          setIsPaused(true);
-          setIsPlaying(false);
-        }
-      }
-      }>{currentAction}</button>
-    </>
-  )
+    return (
+        <div>
+            <button onClick={togglePlayPause}>{playing ? "Pause" : "Play"}</button>
+        </div>
+    )
 }
 
 export default AudioPlayer;
