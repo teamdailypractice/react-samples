@@ -20,13 +20,16 @@ function SearchBox(props) {
         if (props.audioPlayer !== null) {
             const audioPlayer = props.audioPlayer;
             const currentlyPlayingIndex = audioPlayer.findIndex(audio => audio[1] === 1000);
-            // const indexOfAudioToPlayOrResume = currentlyPlayingIndex === -1 ? 0 : currentlyPlayingIndex;
+            const indexOfAudioToPlayOrResume = currentlyPlayingIndex === -1 ? 0 : currentlyPlayingIndex;
             if (currentlyPlayingIndex >= 0) {
+                console.log('stop currently running')
                 audioPlayer[currentlyPlayingIndex][0].pause();
-                for (let index = 0; index < audioPlayer.length; index++) {
-                    audioPlayer[index] = undefined;
-                }
             }
+            for (let index = 0; index < audioPlayer.length; index++) {
+                console.log('cleaning up all players - ' + index)
+                audioPlayer[index] = undefined;
+            }
+
         }
 
 

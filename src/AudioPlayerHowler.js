@@ -10,7 +10,8 @@ function AudioPlayerHowler(props) {
     }, [props.searchTextSubmitted]);
 
     const audioPlayer = props.audioPlayer;
-    const canActOnPlayer = isPlaying ? 'Pause' : 'Play';
+    // const canActOnPlayer = isPlaying ? 'Pause' : 'Play';
+    const canActOnPlayer = 'Play! Pause...';
     return (
         <>
             <p>files to play: {props.mediaFiles}</p>
