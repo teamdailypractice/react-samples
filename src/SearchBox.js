@@ -15,8 +15,21 @@ function SearchBox(props) {
         if (searchText.length === 0) {
             return;
         }
-        
-        console.log(searchText);
+
+        console.log('props.audioPlayer - ' + props.audioPlayer);
+        if (props.audioPlayer !== null) {
+            const audioPlayer = props.audioPlayer;
+            const currentlyPlayingIndex = audioPlayer.findIndex(audio => audio[1] === 1000);
+            // const indexOfAudioToPlayOrResume = currentlyPlayingIndex === -1 ? 0 : currentlyPlayingIndex;
+            if (currentlyPlayingIndex >= 0) {
+                audioPlayer[currentlyPlayingIndex][0].pause();
+                for (let index = 0; index < audioPlayer.length; index++) {
+                    audioPlayer[index] = undefined;
+                }
+            }
+        }
+
+
         props.setSearchTextSubmitted(searchText);
         setSearchText('');
     }
