@@ -20,7 +20,6 @@ function SearchBox(props) {
         if (props.audioPlayer !== null) {
             const audioPlayer = props.audioPlayer;
             const currentlyPlayingIndex = audioPlayer.findIndex(audio => audio[1] === 1000);
-            const indexOfAudioToPlayOrResume = currentlyPlayingIndex === -1 ? 0 : currentlyPlayingIndex;
             if (currentlyPlayingIndex >= 0) {
                 console.log('stop currently running')
                 audioPlayer[currentlyPlayingIndex][0].pause();
