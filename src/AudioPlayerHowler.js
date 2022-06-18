@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { getAudioPlayer } from './AudioProvider'
+
 
 function AudioPlayerHowler(props) {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -13,7 +13,7 @@ function AudioPlayerHowler(props) {
     // const canActOnPlayer = isPlaying ? 'Pause' : 'Play';
     const canActOnPlayer = 'Play! Pause...';
     return (
-        <>
+        <div>
             <p>files to play: {props.mediaFiles}</p>
             <button onClick={(e) => {
 
@@ -31,7 +31,7 @@ function AudioPlayerHowler(props) {
 
                 }
             }}>{canActOnPlayer}</button>
-        </>)
+        </div>)
 
 }
 

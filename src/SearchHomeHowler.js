@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import AudioPlayer from './AudioPlayer';
+
 import Header from './Header';
-import Navigation from './Navigation';
+
 import SearchBox from './SearchBox';
 import SearchResult from './SearchResult';
 import searchThirukkural from './ThirukkuralSearch';
